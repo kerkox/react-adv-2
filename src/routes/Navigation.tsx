@@ -1,5 +1,4 @@
-import { BrowserRouter } from "react-router-dom";
-import { Routes, Route, NavLink, Navigate } from "react-router-dom";
+import { BrowserRouter, Switch, Route, NavLink } from "react-router-dom";
 
 import { LazyPage1, LazyPage2, LazyPage3 } from "../01-lazyload/pages";
 
@@ -13,39 +12,34 @@ export const Navigation = () => {
           <img src={logo} alt="React Logo" />
           <ul>
             <li>
-              <NavLink
-                to="/lazy1"
-                className={({ isActive }) => (isActive ? "nav-active" : "")}
-              >
+              <NavLink to="/lazy1" activeClassName="nav-active" exact>
                 Lazy 1
               </NavLink>
             </li>
             <li>
-              <NavLink
-                to="/lazy2"
-                className={({ isActive }) => (isActive ? "nav-active" : "")}
-              >
+              <NavLink to="/lazy2" activeClassName="nav-active" exact>
                 Lazy 2
               </NavLink>
             </li>
             <li>
-              <NavLink
-                to="/lazy3"
-                className={({ isActive }) => (isActive ? "nav-active" : "")}
-              >
+              <NavLink to="/lazy3" activeClassName="nav-active" exact>
                 Lazy 3
               </NavLink>
             </li>
           </ul>
         </nav>
 
-        <Routes>
-          <Route path="lazy1" element={<LazyPage1 />} />
-          <Route path="lazy2" element={<LazyPage2 />} />
-          <Route path="lazy3" element={<LazyPage3 />} />
-
-          <Route path="/*" element={<Navigate to="/lazy1" replace />} />
-        </Routes>
+        <Switch>
+          <Route path="/lazy1">
+            <LazyPage1 />
+          </Route>
+          <Route path="/lazy2">
+            <LazyPage2 />
+          </Route>
+          <Route path="/lazy3">
+            <LazyPage3 />
+          </Route>
+        </Switch>
       </div>
     </BrowserRouter>
   );
