@@ -12,41 +12,35 @@ export const Navigation = () => {
           <ul>
             <li>
               <NavLink
-                to="/lazy1"
+                to="/"
                 className={({ isActive }) => (isActive ? "nav-active" : "")}
               >
-                Lazy 1
+                Home
               </NavLink>
             </li>
             <li>
               <NavLink
-                to="/lazy2"
+                to="/about"
                 className={({ isActive }) => (isActive ? "nav-active" : "")}
               >
-                Lazy 2
+                About
               </NavLink>
             </li>
             <li>
               <NavLink
-                to="/lazy3"
+                to="/users"
                 className={({ isActive }) => (isActive ? "nav-active" : "")}
               >
-                Lazy 3
+                Users
               </NavLink>
             </li>
           </ul>
         </nav>
 
         <Routes>
-          <Route path="/about" >
-            <h1>About</h1>
-          </Route>
-          <Route path="/users" >
-            <h1>Users</h1>
-          </Route>
-          <Route path="/" >
-            <h1>Home</h1>
-          </Route>
+          <Route path="/about" element={<h1>About</h1>} />
+          <Route path="/users" element={<h1>Users</h1>} />
+          <Route path="/" element={<h1>Home</h1>} />
         </Routes>
       </div>
     </BrowserRouter>
