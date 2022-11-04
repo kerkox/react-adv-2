@@ -23,7 +23,7 @@ export const useProduct = ({
   const increaseBy = (value: number) => {
     const newValue = Math.max(counter + value, 0);
     const maxCount = initialValues?.maxCount || 0;
-    if(newValue > maxCount) return;
+    if(maxCount > 0 && newValue > maxCount) return;
     
     setCounter(newValue);
     console.log(`%cnew Value: ${newValue}`, "color:pink;");
