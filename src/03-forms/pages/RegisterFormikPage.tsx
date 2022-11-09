@@ -65,7 +65,7 @@ export const RegisterFormikPage = () => {
               <MyTextInput name="password1" label="Password" type="password" />
               <MyTextInput name="password2" label="Repeat Password" type="password" />
               <button type="submit">Submit</button>
-              <button type="button" onClick={handleReset}>Reset</button>
+              <button type="button" onClick={() => {resetData(); handleReset()}}>Reset</button>
             </Form>
           )
         }
